@@ -7,6 +7,7 @@ from base_camera import BaseCamera
 class Camera(BaseCamera):
     @staticmethod
     def frames():
+        # with Camera.set_res(1920, 1080) as camera:
         with picamera.PiCamera() as camera:
             # let camera warm up
             time.sleep(2)
@@ -21,3 +22,9 @@ class Camera(BaseCamera):
                 # reset stream for next frame
                 stream.seek(0)
                 stream.truncate()
+
+    # @staticmethod
+    # def set_res(x, y):
+    #     with picamera.PiCamera() as camera:
+    #         camera.resolution(x, y)
+    #         return camera
